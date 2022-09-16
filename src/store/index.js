@@ -2,6 +2,7 @@ import { createStore } from "vuex";
 import auth from "./auth.store";
 import user from "./user.store";
 import product from "./product.store";
+import customer from "./customer.store";
 
 export default createStore({
   state: {
@@ -26,5 +27,6 @@ export default createStore({
     auth,
     user,
     product,
+    customer,
   },
 });

@@ -6,6 +6,7 @@ import RegisterVue from "@/views/auth/Register.vue";
 import AboutViewVue from "@/views/AboutView.vue";
 import ProductViewVue from "@/views/ProductView.vue";
 import Product from "@/views/products/Product.vue";
+import Customer from "@/views/customers/Customer.vue";
 
 const routes = [
   {
@@ -31,6 +32,12 @@ const routes = [
     name: "about",
     component: AboutViewVue,
     meta: { needAuth: true, title: "About" },
+  },
+  {
+    path: "/customer",
+    name: "customer",
+    component: Customer,
+    meta: { needAuth: true, title: "Customer" },
   },
   {
     path: "/products",
