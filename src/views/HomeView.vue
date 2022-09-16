@@ -9,23 +9,10 @@
   </div>
 </template>
 <script>
-import { mapState, mapActions } from "vuex";
+import { mapState } from "vuex";
 export default {
   computed: {
     ...mapState("user", ["user"]),
-  },
-  methods: {
-    ...mapActions("user", ["fetchUser"]),
-    async _fetchUser() {
-      try {
-        await this.fetchUser();
-      } catch (error) {
-        console.log(error);
-      }
-    },
-  },
-  created() {
-    this._fetchUser();
-  },
+  }
 };
 </script>

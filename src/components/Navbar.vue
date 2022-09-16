@@ -14,7 +14,12 @@
           >BayTech</span
         >
       </div>
-      <div v-if="!$store.getters.isAuth" class="flex md:order-2">
+      <div
+        class="flex items-center md:order-2"
+      >
+        <!-- USER -->
+        <User v-if="$store.getters.isAuth"/>
+        <div v-if="!$store.getters.isAuth" class="flex md:order-2">
         <router-link to="/signin">
           <button
             type="button"
@@ -32,27 +37,7 @@
           </button>
         </router-link>
       </div>
-      <div
-        v-if="$store.getters.isAuth"
-        class="flex items-center md:order-2"
-      >
-        <div
-          class="overflow-hidden relative w-10 h-10 bg-gray-100 rounded-full dark:bg-gray-600"
-        >
-          <svg
-            class="absolute -left-1 w-12 h-12 text-gray-400"
-            fill="currentColor"
-            viewBox="0 0 20 20"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z"
-              clip-rule="evenodd"
-            ></path>
-          </svg>
-        </div>
-        <span class="text-sm mx-2 text-slate-500">{{ user.email }}</span>
+        <!-- USER -->
         <button
         @click="showMenu"
           data-collapse-toggle="navbar-cta"
@@ -97,6 +82,13 @@
               class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
               to="/about"
               >About</router-link
+            >
+          </li>
+          <li>
+            <router-link
+              class="block py-2 pr-4 pl-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white"
+              to="/products"
+              >Products</router-link
             >
           </li>
           <li v-if="$store.getters.isAuth">
@@ -150,26 +142,24 @@
 
 <script>
 import store from "@/store";
-import { mapState, mapActions } from "vuex";
+import User from "./User.vue";
 export default {
-  data() {
-    return {
-      isLogin: store.getters.isAuth,
-      show: false,
-    };
-  },
-  computed: {
-    ...mapState("user", ["user"]),
-  },
-  methods: {
-    logout() {
-      localStorage.removeItem("access_token");
-      // force reload
-      location.reload();
+    data() {
+        return {
+            isLogin: store.getters.isAuth,
+            show: false,
+        };
     },
-    showMenu() {
-      this.show = !this.show;
+    methods: {
+        logout() {
+            localStorage.removeItem("access_token");
+            // force reload
+            location.reload();
+        },
+        showMenu() {
+            this.show = !this.show;
+        },
     },
-  },
+    components: { User }
 };
 </script>

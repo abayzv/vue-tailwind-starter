@@ -1,30 +1,30 @@
-import { createStore } from 'vuex'
-import auth from './auth.store'
-import user from './user.store'
+import { createStore } from "vuex";
+import auth from "./auth.store";
+import user from "./user.store";
+import product from "./product.store";
 
 export default createStore({
   state: {
-    access_token : localStorage.getItem('access_token'),
+    access_token: localStorage.getItem("access_token"),
   },
-  getters: {
-  },
+  getters: {},
   mutations: {
     _set_token(state, payload) {
-      state.access_token = payload
-    }
+      state.access_token = payload;
+    },
   },
-  actions: {
-  },
-  getters:{
-    isAuth: state => {
-      if(state.access_token != "" && state.access_token != null) {
-        return true
+  actions: {},
+  getters: {
+    isAuth: (state) => {
+      if (state.access_token != "" && state.access_token != null) {
+        return true;
       }
-      return false
-    }
+      return false;
+    },
   },
   modules: {
     auth,
-    user
-  }
-})
+    user,
+    product,
+  },
+});
