@@ -7,6 +7,8 @@
     "build": "vue-cli-service build"
   },
   "dependencies": {
+    "@amcharts/amcharts5": "^5.2.33",
+    "@amcharts/amcharts5-geodata": "^5.0.6",
     "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "flowbite": "^1.5.3",
