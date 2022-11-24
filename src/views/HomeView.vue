@@ -112,6 +112,8 @@ export default {
     );
 
     polygonSeries.set("fill", am5.color("#cccccc"));
+    polygonSeries.set("stroke", am5.color("#cccccc"));
+    
 
     // var cities = {
     //   type: "FeatureCollection",
